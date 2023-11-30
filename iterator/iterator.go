@@ -48,10 +48,7 @@ type UserIterator struct {
 // the has next method typically takes account for the current item which the client is at in the aggregation and indicates if there are more items in the aggregatoin or not. ie: if there is another item after the current item.
 // this returns a boolean. false if the client is at the last element or true if there are more elements/items.
 func (u *UserIterator) hasNext() bool {
-	if u.index < len(u.users) {
-		return true
-	}
-	return false
+	return u.index < len(u.users) 
 }
 
 // The next method moves the client through the elements in the aggregator. typically check if there is another item after the current item. this method greatly relies on the hasNext method. it simply increaments the index (which indicates the current item) if the hasNext method returns true.
